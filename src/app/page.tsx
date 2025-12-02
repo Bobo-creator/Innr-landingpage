@@ -143,7 +143,7 @@ export default function Home() {
             <img 
               src="/assets/innr-logo.svg" 
               alt="Innr Logo" 
-              className="mx-auto h-16 w-auto"
+              className="mx-auto h-20 md:h-24 lg:h-28 w-auto"
             />
           </div>
         </div>
