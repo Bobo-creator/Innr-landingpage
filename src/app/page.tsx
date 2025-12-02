@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import { waitlistAPI, utils, type SchoolStats } from '@/lib/supabase'
 
 const FloatingCard = ({ 
   children, 
@@ -28,14 +29,86 @@ const FloatingCard = ({
 }
 
 export default function Home() {
-  const [email, setEmail] = useState('')
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: ''
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [message, setMessage] = useState('')
+  const [messageType, setMessageType] = useState<'success' | 'error' | ''>('')
+  const [topSchools, setTopSchools] = useState<SchoolStats[]>([])
+
+  // Load top schools on component mount
+  useEffect(() => {
+    loadTopSchools()
+  }, [])
+
+  const loadTopSchools = async () => {
+    try {
+      const schools = await waitlistAPI.getTop3Schools()
+      setTopSchools(schools)
+    } catch (error) {
+      console.error('Error loading top schools:', error)
+    }
+  }
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // TODO: Integrate with Supabase
-    console.log('Email submitted:', email)
-    setEmail('')
-    alert('Thanks for joining the waitlist! We\'ll be in touch soon.')
+    setIsSubmitting(true)
+    setMessage('')
+    setMessageType('')
+
+    try {
+      // Validate .edu email
+      if (!utils.isEduEmail(formData.email)) {
+        throw new Error('Please use a valid .edu email address')
+      }
+
+      // Check if email is already on waitlist
+      const isAlreadySignedUp = await waitlistAPI.isEmailOnWaitlist(formData.email)
+      if (isAlreadySignedUp) {
+        throw new Error('This email is already on the waitlist!')
+      }
+
+      // Add to waitlist
+      const result = await waitlistAPI.addToWaitlist({
+        first_name: formData.firstName.trim(),
+        last_name: formData.lastName.trim(),
+        email: formData.email.toLowerCase().trim(),
+      })
+
+      // Get school info
+      const schoolDomain = utils.extractSchoolDomain(formData.email)
+      const schoolRank = await waitlistAPI.getSchoolRank(schoolDomain)
+      const schoolCount = await waitlistAPI.getSchoolSignupCount(schoolDomain)
+
+      setMessage(
+        `Welcome to the waitlist! You're #${result.position} overall. ` +
+        `Your school is currently ranked #${schoolRank || 'unranked'} with ${schoolCount} signups.`
+      )
+      setMessageType('success')
+      
+      // Clear form
+      setFormData({ firstName: '', lastName: '', email: '' })
+      
+      // Refresh top schools
+      await loadTopSchools()
+
+    } catch (error: any) {
+      setMessage(error.message || 'Something went wrong. Please try again.')
+      setMessageType('error')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
