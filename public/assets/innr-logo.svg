@@ -1,6 +1,12 @@
-<svg width="200" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
-  <text x="0" y="60" font-family="Inter, system-ui, sans-serif" font-size="48" font-weight="900" fill="#000000">
-    Innr
-  </text>
-  <circle cx="165" cy="40" r="8" fill="#FF4136"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="2000" height="2000" viewBox="0 0 2000 2000"><rect width="2000" height="2000" x="0" y="0" id="background" stroke="transparent" fill="#ffffff"></rect><svg xml:space="preserve" width="1500" height="1500" data-version="2" data-id="lg_vYI0SSQmxQZSko28tn" viewBox="0 0 533 182" x="250" y="250">
+    <path d="M28.77 173.24V7.76h31.71v165.48Zm-23.86 5.65v-27.32h78.81v27.32Zm0-149.15V2.11h78.81v27.63Z" paint-order="stroke"></path>
+    <rect width="78.81" height="176.78" x="-39.405" y="-88.39" fill="none" rx="0" ry="0" transform="matrix(1 0 0 1 44.815 91)"></rect>
+    <path d="M110.1 178.89V49.84h27.31l5.34 27.94h.63q.31-.94 2.35-5.18t6.91-9.58q4.87-5.33 13.19-9.26 8.32-3.92 20.88-3.92 13.82 0 22.45 4.55 8.64 4.55 13.66 11.93 5.03 7.38 7.07 16.33t2.51 17.74q.47 8.79.47 16.01v62.49h-31.4v-62.8q0-10.36-2.04-18.84t-7.85-13.82q-5.81-5.33-18.06-5.33-12.56 0-19.15 5.8-6.6 5.81-9.11 14.61-2.51 8.79-2.51 18.84v61.54Z" paint-order="stroke"></path>
+    <rect width="122.77" height="129.05" x="-61.385" y="-64.525" fill="none" rx="0" ry="0" transform="matrix(1 0 0 1 171.985 114.865)"></rect>
+    <path d="M250.14 178.89V49.84h27.32l5.34 27.94h.62q.32-.94 2.36-5.18t6.91-9.58q4.86-5.33 13.18-9.26 8.33-3.92 20.89-3.92 13.81 0 22.45 4.55 8.63 4.55 13.66 11.93 5.02 7.38 7.06 16.33t2.51 17.74q.47 8.79.47 16.01v62.49h-31.4v-62.8q0-10.36-2.04-18.84t-7.85-13.82q-5.81-5.33-18.05-5.33-12.56 0-19.16 5.8-6.59 5.81-9.1 14.61-2.51 8.79-2.51 18.84v61.54Z" paint-order="stroke"></path>
+    <rect width="122.77" height="129.05" x="-61.385" y="-64.525" fill="none" rx="0" ry="0" transform="matrix(1 0 0 1 312.025 114.865)"></rect>
+    <path d="M391.75 178.89V49.84h29.83l2.52 37.68-.32 27.63v63.74Zm32.03-55.58-.94-28.57q0-6.6 2.51-14.29 2.51-7.69 8.32-14.6 5.81-6.91 15.23-11.46 9.42-4.55 23.24-4.55h4.71v35.79h-4.71q-13.5 0-22.92 2.04-9.42 2.04-14.92 6.44-5.49 4.4-8.01 11.62-2.51 7.22-2.51 17.58" paint-order="stroke"></path>
+    <rect width="85.1" height="129.05" x="-42.55" y="-64.525" fill="none" rx="0" ry="0" transform="matrix(1 0 0 1 434.8 114.865)"></rect>
+    <path fill="#FF4136" d="M508.56 178.89q-11.3 0-15.23-5.65-3.92-5.65-3.92-13.82 0-7.53 3.92-13.19 3.93-5.65 15.23-5.65 10.68 0 14.6 5.65 3.93 5.66 3.93 13.19 0 8.17-3.93 13.82-3.92 5.65-14.6 5.65" paint-order="stroke"></path>
+    <rect width="37.68" height="38.31" x="-18.84" y="-19.155" fill="none" rx="0" ry="0" transform="matrix(1 0 0 1 508.75 160.235)"></rect>
+</svg></svg>
