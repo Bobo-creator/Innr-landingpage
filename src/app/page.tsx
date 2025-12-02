@@ -140,12 +140,11 @@ export default function Home() {
         {/* Logo */}
         <div className="mb-12">
           <div className="mb-4">
-            <svg width="160" height="60" viewBox="0 0 200 80" className="mx-auto">
-              <text x="0" y="55" fontFamily="Inter, system-ui, sans-serif" fontSize="42" fontWeight="900" fill="#000000">
-                Innr
-              </text>
-              <circle cx="150" cy="35" r="6" fill="#FF4136"/>
-            </svg>
+            <img 
+              src="/assets/innr-logo.svg" 
+              alt="Innr Logo" 
+              className="mx-auto h-16 w-auto"
+            />
           </div>
         </div>
 
