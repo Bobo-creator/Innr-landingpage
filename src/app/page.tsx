@@ -197,13 +197,34 @@ export default function Home() {
 
       <style jsx>{`
         @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          33% { transform: translateY(-20px) rotate(1deg); }
-          66% { transform: translateY(-10px) rotate(-1deg); }
+          0%, 100% { 
+            transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+          }
+          33% { 
+            transform: translateY(-20px) rotateX(2deg) rotateY(1deg);
+          }
+          66% { 
+            transform: translateY(-10px) rotateX(-1deg) rotateY(-2deg);
+          }
+        }
+        
+        @keyframes float-3d {
+          0%, 100% { 
+            transform: translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg);
+          }
+          50% { 
+            transform: translateY(-15px) translateZ(10px) rotateX(3deg) rotateY(2deg);
+          }
         }
         
         .floating-card {
-          animation: float infinite ease-in-out;
+          animation: float-3d infinite ease-in-out;
+          transform-style: preserve-3d;
+          perspective: 1000px;
+        }
+        
+        body {
+          perspective: 1200px;
         }
       `}</style>
     </main>
