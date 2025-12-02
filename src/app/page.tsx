@@ -44,70 +44,65 @@ export default function Home() {
       <div className="absolute inset-0 pointer-events-none">
         {/* Top Left Card - Campus Events */}
         <FloatingCard 
-          className="absolute top-20 left-4 md:left-20 w-64 md:w-80 h-40 md:h-48 bg-gradient-to-br from-slate-900 via-gray-800 to-black rounded-3xl shadow-2xl border border-gray-200"
+          className="absolute top-20 left-4 md:left-20 w-64 md:w-80 h-40 md:h-48 bg-gradient-to-br from-slate-900 via-gray-800 to-black rounded-3xl shadow-2xl border border-gray-200 transform -rotate-6 hover:rotate-3 transition-transform duration-500"
           delay={0}
         >
-          <div className="h-full w-full rounded-3xl backdrop-blur-sm flex items-center justify-center p-6">
-            <div className="text-white text-center">
-              <div className="w-12 h-12 bg-innr-red rounded-xl mx-auto mb-3 flex items-center justify-center">
-                <svg className="w-6 h-6" fill="white" viewBox="0 0 24 24">
-                  <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-                </svg>
-              </div>
-              <h3 className="text-lg font-bold mb-1">Campus Events</h3>
-              <p className="text-sm opacity-80">Never miss what matters</p>
+          <div className="h-full w-full rounded-3xl backdrop-blur-sm flex items-center justify-center p-6 perspective-1000">
+            <div className="text-white text-left w-full">
+              <h3 className="text-xl font-black mb-2 text-white">Campus growth</h3>
+              <p className="text-sm opacity-90 font-medium">starts here</p>
             </div>
           </div>
         </FloatingCard>
 
-        {/* Top Right Card - Real-time Updates */}
+        {/* Top Right Card - Security */}
         <FloatingCard 
-          className="absolute top-32 right-4 md:right-20 w-60 md:w-72 h-36 md:h-44 bg-white rounded-2xl shadow-xl border border-gray-100"
+          className="absolute top-32 right-4 md:right-20 w-60 md:w-72 h-36 md:h-44 bg-white rounded-2xl shadow-xl border border-gray-100 transform rotate-12 hover:rotate-6 transition-transform duration-500"
           delay={2000}
         >
           <div className="h-full w-full p-6 flex flex-col justify-between">
-            <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center">
+            <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center">
               <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.5 6L12 10.5 8.5 8 12 5.5 15.5 8zM12 13.5l3.5 2.5-3.5 2.5L8.5 16l3.5-2.5z"/>
+                <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11.5C15.4,11.5 16,12.1 16,12.7V16.2C16,16.8 15.4,17.3 14.8,17.3H9.2C8.6,17.3 8,16.8 8,16.2V12.8C8,12.2 8.6,11.6 9.2,11.6V10C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.5,8.7 10.5,9.5V11.5H13.6V9.5C13.6,8.7 12.8,8.2 12,8.2Z"/>
               </svg>
             </div>
             <div>
-              <h3 className="font-bold text-gray-900 mb-1">Real-time Updates</h3>
-              <p className="text-sm text-gray-600">Stay connected with live campus notifications and announcements</p>
+              <h3 className="font-bold text-gray-900 mb-1">Campus Security</h3>
+              <p className="text-sm text-gray-600">Real-time safety updates and emergency alerts for peace of mind</p>
             </div>
           </div>
         </FloatingCard>
 
-        {/* Bottom Left Card - Organizations */}
+        {/* Bottom Left Card - Daily Agenda */}
         <FloatingCard 
-          className="absolute bottom-32 left-4 md:left-16 w-56 md:w-64 h-36 md:h-40 bg-gradient-to-br from-innr-red to-rose-500 rounded-2xl shadow-xl"
+          className="absolute bottom-32 left-4 md:left-16 w-56 md:w-64 h-36 md:h-40 bg-gradient-to-br from-emerald-500 to-green-400 rounded-2xl shadow-xl transform -rotate-12 hover:-rotate-6 transition-transform duration-500"
           delay={4000}
         >
           <div className="h-full w-full rounded-2xl backdrop-blur-sm flex flex-col justify-center items-center text-white p-4">
             <div className="w-12 h-12 bg-white/20 rounded-xl mb-3 flex items-center justify-center">
               <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zM4 18v-6h3v7c0 1.1.9 2 2 2h1c1.1 0 2-.9 2-2v-7h3v6h13v-6c0-1.1-.9-2-2-2h-1l-3.5-6.5c-.33-.67-1-.67-1.34 0L17.5 10H16v8z"/>
+                <path d="M19,3H18V1H16V3H8V1H6V3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M19,19H5V8H19V19Z"/>
               </svg>
             </div>
-            <p className="text-center font-semibold text-sm">Student Organizations</p>
-            <p className="text-center text-xs opacity-90 mt-1">Connect & collaborate</p>
+            <p className="text-center font-bold text-lg">Your daily</p>
+            <p className="text-center font-medium text-sm opacity-90">campus agenda</p>
           </div>
         </FloatingCard>
 
-        {/* Bottom Right Card - Faculty Connect */}
+        {/* Bottom Right Card - Connected Events */}
         <FloatingCard 
-          className="absolute bottom-20 right-4 md:right-16 w-60 md:w-72 h-36 md:h-44 bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-xl border border-slate-700"
+          className="absolute bottom-20 right-4 md:right-16 w-60 md:w-72 h-36 md:h-44 bg-gradient-to-br from-indigo-900 to-purple-900 rounded-2xl shadow-xl transform rotate-6 hover:rotate-3 transition-transform duration-500"
           delay={1000}
         >
           <div className="h-full w-full p-6 text-white flex flex-col justify-between">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center">
-              <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-              </svg>
+            <div className="flex space-x-2 mb-2">
+              <div className="w-3 h-3 bg-cyan-400 rounded-full"></div>
+              <div className="w-3 h-3 bg-purple-400 rounded-full"></div>
+              <div className="w-3 h-3 bg-pink-400 rounded-full"></div>
             </div>
             <div>
-              <h3 className="font-bold mb-1">Faculty & Alumni</h3>
-              <p className="text-sm opacity-80">Bridge connections across your campus community</p>
+              <h3 className="font-bold mb-2 text-lg">Connected Events</h3>
+              <p className="text-sm opacity-80">Discover, organize, and never miss campus opportunities</p>
             </div>
           </div>
         </FloatingCard>
