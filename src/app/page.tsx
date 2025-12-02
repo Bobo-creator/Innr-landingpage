@@ -44,7 +44,7 @@ export default function Home() {
       <div className="absolute inset-0 pointer-events-none">
         {/* Top Left Card */}
         <FloatingCard 
-          className="absolute top-20 left-20 w-80 h-48 bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 rounded-3xl shadow-2xl"
+          className="absolute top-20 left-4 md:left-20 w-64 md:w-80 h-40 md:h-48 bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 rounded-3xl shadow-2xl"
           delay={0}
         >
           <div className="h-full w-full rounded-3xl bg-black/20 backdrop-blur-sm flex items-center justify-center">
@@ -57,7 +57,7 @@ export default function Home() {
 
         {/* Top Right Card */}
         <FloatingCard 
-          className="absolute top-32 right-20 w-72 h-44 bg-white rounded-2xl shadow-xl"
+          className="absolute top-32 right-4 md:right-20 w-60 md:w-72 h-36 md:h-44 bg-white rounded-2xl shadow-xl"
           delay={2000}
         >
           <div className="h-full w-full p-6 flex flex-col justify-between">
@@ -71,7 +71,7 @@ export default function Home() {
 
         {/* Bottom Left Card */}
         <FloatingCard 
-          className="absolute bottom-32 left-16 w-64 h-40 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl shadow-xl"
+          className="absolute bottom-32 left-4 md:left-16 w-56 md:w-64 h-36 md:h-40 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl shadow-xl"
           delay={4000}
         >
           <div className="h-full w-full rounded-2xl bg-black/10 backdrop-blur-sm flex flex-col justify-center items-center text-white p-4">
@@ -82,7 +82,7 @@ export default function Home() {
 
         {/* Bottom Right Cards */}
         <FloatingCard 
-          className="absolute bottom-20 right-16 w-72 h-44 bg-gradient-to-br from-indigo-900 to-purple-900 rounded-2xl shadow-xl"
+          className="absolute bottom-20 right-4 md:right-16 w-60 md:w-72 h-36 md:h-44 bg-gradient-to-br from-indigo-900 to-purple-900 rounded-2xl shadow-xl"
           delay={1000}
         >
           <div className="h-full w-full p-6 text-white flex flex-col justify-between">
@@ -102,17 +102,23 @@ export default function Home() {
         <FloatingCard 
           className="absolute top-1/2 left-8 w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full shadow-lg"
           delay={3000}
-        />
+        >
+          <div></div>
+        </FloatingCard>
         
         <FloatingCard 
           className="absolute top-1/4 right-1/4 w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl shadow-lg"
           delay={5000}
-        />
+        >
+          <div></div>
+        </FloatingCard>
 
         <FloatingCard 
           className="absolute bottom-1/4 left-1/3 w-12 h-12 bg-gradient-to-br from-teal-400 to-blue-500 rounded-full shadow-lg"
           delay={1500}
-        />
+        >
+          <div></div>
+        </FloatingCard>
       </div>
 
       {/* Main Content */}
@@ -124,13 +130,13 @@ export default function Home() {
         </div>
 
         {/* Main Heading */}
-        <h2 className="text-6xl md:text-7xl font-black text-gray-900 mb-6 max-w-4xl leading-tight">
+        <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-6 max-w-4xl leading-tight">
           The future of 
           <span className="block text-innr-red">campus communication</span>
         </h2>
 
         {/* Subtitle */}
-        <p className="text-xl text-gray-600 mb-4 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-lg md:text-xl text-gray-600 mb-4 max-w-3xl mx-auto leading-relaxed px-4">
           Defragmenting campus life. Making student experiences visible, connected, and accessible.
         </p>
 
