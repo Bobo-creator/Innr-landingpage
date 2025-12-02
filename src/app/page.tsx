@@ -174,7 +174,7 @@ export default function Home() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email address"
+              placeholder="Enter your .edu email address"
               required
               className="flex-1 px-6 py-4 rounded-2xl border-2 border-slate-200 focus:border-innr-red focus:outline-none text-lg bg-white/80 backdrop-blur-sm placeholder-slate-400"
             />
