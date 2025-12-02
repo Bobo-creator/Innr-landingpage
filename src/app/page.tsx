@@ -39,32 +39,41 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
+    <main className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-gray-50 relative overflow-hidden">
       {/* Floating Cards */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Top Left Card */}
+        {/* Top Left Card - Campus Events */}
         <FloatingCard 
-          className="absolute top-20 left-4 md:left-20 w-64 md:w-80 h-40 md:h-48 bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 rounded-3xl shadow-2xl"
+          className="absolute top-20 left-4 md:left-20 w-64 md:w-80 h-40 md:h-48 bg-gradient-to-br from-slate-900 via-gray-800 to-black rounded-3xl shadow-2xl border border-gray-200"
           delay={0}
         >
-          <div className="h-full w-full rounded-3xl bg-black/20 backdrop-blur-sm flex items-center justify-center">
-            <div className="text-white text-center p-6">
-              <h3 className="text-2xl font-bold mb-2">Campus Growth</h3>
-              <p className="text-sm opacity-90">starts here</p>
+          <div className="h-full w-full rounded-3xl backdrop-blur-sm flex items-center justify-center p-6">
+            <div className="text-white text-center">
+              <div className="w-12 h-12 bg-innr-red rounded-xl mx-auto mb-3 flex items-center justify-center">
+                <svg className="w-6 h-6" fill="white" viewBox="0 0 24 24">
+                  <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold mb-1">Campus Events</h3>
+              <p className="text-sm opacity-80">Never miss what matters</p>
             </div>
           </div>
         </FloatingCard>
 
-        {/* Top Right Card */}
+        {/* Top Right Card - Real-time Updates */}
         <FloatingCard 
-          className="absolute top-32 right-4 md:right-20 w-60 md:w-72 h-36 md:h-44 bg-white rounded-2xl shadow-xl"
+          className="absolute top-32 right-4 md:right-20 w-60 md:w-72 h-36 md:h-44 bg-white rounded-2xl shadow-xl border border-gray-100"
           delay={2000}
         >
           <div className="h-full w-full p-6 flex flex-col justify-between">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-xl"></div>
+            <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center">
+              <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.5 6L12 10.5 8.5 8 12 5.5 15.5 8zM12 13.5l3.5 2.5-3.5 2.5L8.5 16l3.5-2.5z"/>
+              </svg>
+            </div>
             <div>
-              <h3 className="font-bold text-gray-800 mb-1">Campus Security</h3>
-              <p className="text-sm text-gray-600">Real-time campus updates and safety alerts in one unified platform</p>
+              <h3 className="font-bold text-gray-900 mb-1">Real-time Updates</h3>
+              <p className="text-sm text-gray-600">Stay connected with live campus notifications and announcements</p>
             </div>
           </div>
         </FloatingCard>
