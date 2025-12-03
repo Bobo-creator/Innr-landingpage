@@ -92,8 +92,8 @@ export default function Home() {
       const schoolCount = await waitlistAPI.getSchoolSignupCount(schoolDomain)
 
       setMessage(
-        `Welcome to the waitlist! You're #${result.position} overall. ` +
-        `Your school is currently ranked #${schoolRank || 'unranked'} with ${schoolCount} signups.`
+        `Welcome to the waitlist! ` +
+        `Your school is currently ranked #${schoolRank || 'unranked'}.`
       )
       setMessageType('success')
       
