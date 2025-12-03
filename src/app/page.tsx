@@ -256,7 +256,7 @@ export default function Home() {
                   onChange={handleInputChange}
                   placeholder="First name"
                   required
-                  className="px-6 py-4 rounded-2xl border-2 border-slate-200 focus:border-innr-red focus:outline-none text-lg bg-white/80 backdrop-blur-sm placeholder-slate-400"
+                  className="px-6 py-4 rounded-2xl border-2 border-slate-200 focus:border-innr-red focus:outline-none text-lg bg-white text-slate-900 placeholder-slate-400 shadow-sm"
                 />
                 <input
                   type="text"
@@ -265,7 +265,7 @@ export default function Home() {
                   onChange={handleInputChange}
                   placeholder="Last name"
                   required
-                  className="px-6 py-4 rounded-2xl border-2 border-slate-200 focus:border-innr-red focus:outline-none text-lg bg-white/80 backdrop-blur-sm placeholder-slate-400"
+                  className="px-6 py-4 rounded-2xl border-2 border-slate-200 focus:border-innr-red focus:outline-none text-lg bg-white text-slate-900 placeholder-slate-400 shadow-sm"
                 />
               </div>
               <input
@@ -275,7 +275,7 @@ export default function Home() {
                 onChange={handleInputChange}
                 placeholder="Enter your .edu email address"
                 required
-                className="w-full px-6 py-4 rounded-2xl border-2 border-slate-200 focus:border-innr-red focus:outline-none text-lg bg-white/80 backdrop-blur-sm placeholder-slate-400"
+                className="w-full px-6 py-4 rounded-2xl border-2 border-slate-200 focus:border-innr-red focus:outline-none text-lg bg-white text-slate-900 placeholder-slate-400 shadow-sm"
               />
               <button
                 type="submit"
