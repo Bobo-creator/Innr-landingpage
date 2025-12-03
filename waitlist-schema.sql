@@ -16,7 +16,7 @@ CREATE TABLE public.waitlist_signups (
   school_domain VARCHAR(255) NOT NULL,
   school_name VARCHAR(255),
   position INTEGER, -- Position in the waitlist (auto-assigned)
-  is_verified BOOLEAN DEFAULT FALSE,
+  is_verified BOOLEAN DEFAULT TRUE,
   verification_token UUID DEFAULT uuid_generate_v4(),
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   updated_at TIMESTAMPTZ,
@@ -142,25 +142,33 @@ CREATE TRIGGER trigger_populate_waitlist_info
 
 -- School leaderboard view (all schools with signups)
 CREATE OR REPLACE VIEW school_leaderboard AS
+WITH school_signups AS (
+  SELECT 
+    school_domain,
+    school_name,
+    university_id,
+    first_name || ' ' || SUBSTRING(last_name, 1, 1) || '.' as display_name,
+    created_at,
+    ROW_NUMBER() OVER (PARTITION BY school_domain ORDER BY created_at) as rn
+  FROM waitlist_signups 
+  WHERE is_verified = TRUE
+)
 SELECT 
-  school_domain,
-  school_name,
-  university_id,
+  s.school_domain,
+  s.school_name,
+  s.university_id,
   COUNT(*) as signup_count,
-  RANK() OVER (ORDER BY COUNT(*) DESC, MIN(created_at) ASC) as rank,
+  RANK() OVER (ORDER BY COUNT(*) DESC, MIN(s.created_at) ASC) as rank,
   -- Get sample student names for display (first 3, privacy-friendly)
-  ARRAY_AGG(
-    first_name || ' ' || SUBSTRING(last_name, 1, 1) || '.' 
-    ORDER BY created_at 
-    LIMIT 3
-  ) as sample_students,
-  MIN(created_at) as first_signup_at,
-  MAX(created_at) as latest_signup_at,
+  ARRAY_AGG(ss.display_name ORDER BY ss.created_at) 
+    FILTER (WHERE ss.rn <= 3) as sample_students,
+  MIN(s.created_at) as first_signup_at,
+  MAX(s.created_at) as latest_signup_at,
   -- Calculate momentum (signups in last 7 days)
-  COUNT(*) FILTER (WHERE created_at >= NOW() - INTERVAL '7 days') as recent_signups
-FROM waitlist_signups 
-WHERE is_verified = TRUE  -- Only count verified signups
-GROUP BY school_domain, school_name, university_id
+  COUNT(*) FILTER (WHERE s.created_at >= NOW() - INTERVAL '7 days') as recent_signups
+FROM school_signups s
+LEFT JOIN school_signups ss ON s.school_domain = ss.school_domain AND ss.rn <= 3
+GROUP BY s.school_domain, s.school_name, s.university_id
 ORDER BY signup_count DESC, first_signup_at ASC;
 
 -- Top 3 schools for frontend display

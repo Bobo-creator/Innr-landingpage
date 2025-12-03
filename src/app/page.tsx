@@ -240,24 +240,106 @@ export default function Home() {
           </span>
         </div>
 
+        {/* School Competition */}
+        {topSchools.length > 0 && (
+          <div className="w-full max-w-4xl mb-12">
+            <h3 className="text-2xl font-bold text-slate-900 text-center mb-6">
+              🏆 School Competition: First to Launch
+            </h3>
+            <p className="text-slate-600 text-center mb-8 max-w-2xl mx-auto">
+              We'll prioritize launching at the schools with the most waitlist signups. 
+              Get your friends to join and put your school on top!
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {topSchools.map((school, index) => (
+                <div
+                  key={school.school_domain}
+                  className={`relative p-6 rounded-2xl shadow-lg border-2 ${
+                    index === 0
+                      ? 'bg-gradient-to-br from-yellow-50 to-yellow-100 border-yellow-300'
+                      : index === 1
+                      ? 'bg-gradient-to-br from-gray-50 to-gray-100 border-gray-300'
+                      : 'bg-gradient-to-br from-amber-50 to-amber-100 border-amber-300'
+                  }`}
+                >
+                  <div className="text-center">
+                    <div className="text-3xl mb-2">{school.medal}</div>
+                    <h4 className="font-bold text-lg text-slate-900 mb-1">
+                      {utils.formatSchoolName(school.school_name)}
+                    </h4>
+                    <p className="text-2xl font-black text-innr-red mb-2">
+                      {school.signup_count} signups
+                    </p>
+                    <div className="text-xs text-slate-600">
+                      Recent: {school.sample_students?.slice(0, 3).join(', ')}
+                    </div>
+                  </div>
+                  {index === 0 && (
+                    <div className="absolute -top-2 -right-2 bg-innr-red text-white text-xs px-2 py-1 rounded-full font-bold">
+                      LEADS!
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Join Waitlist */}
         <div className="w-full max-w-lg">
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 mb-6">
+          <form onSubmit={handleSubmit} className="space-y-4 mb-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <input
+                type="text"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleInputChange}
+                placeholder="First name"
+                required
+                className="px-6 py-4 rounded-2xl border-2 border-slate-200 focus:border-innr-red focus:outline-none text-lg bg-white/80 backdrop-blur-sm placeholder-slate-400"
+              />
+              <input
+                type="text"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleInputChange}
+                placeholder="Last name"
+                required
+                className="px-6 py-4 rounded-2xl border-2 border-slate-200 focus:border-innr-red focus:outline-none text-lg bg-white/80 backdrop-blur-sm placeholder-slate-400"
+              />
+            </div>
             <input
               type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
               placeholder="Enter your .edu email address"
               required
-              className="flex-1 px-6 py-4 rounded-2xl border-2 border-slate-200 focus:border-innr-red focus:outline-none text-lg bg-white/80 backdrop-blur-sm placeholder-slate-400"
+              className="w-full px-6 py-4 rounded-2xl border-2 border-slate-200 focus:border-innr-red focus:outline-none text-lg bg-white/80 backdrop-blur-sm placeholder-slate-400"
             />
             <button
               type="submit"
-              className="px-8 py-4 bg-slate-900 hover:bg-innr-red text-white rounded-2xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+              disabled={isSubmitting}
+              className={`w-full px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl ${
+                isSubmitting
+                  ? 'bg-gray-400 cursor-not-allowed'
+                  : 'bg-slate-900 hover:bg-innr-red hover:scale-105'
+              } text-white`}
             >
-              Join Waitlist
+              {isSubmitting ? 'Joining...' : 'Join Waitlist!'}
             </button>
           </form>
+
+          {/* Message Display */}
+          {message && (
+            <div className={`p-4 rounded-2xl mb-4 ${
+              messageType === 'success' 
+                ? 'bg-green-50 text-green-800 border border-green-200' 
+                : 'bg-red-50 text-red-800 border border-red-200'
+            }`}>
+              <p className="text-sm font-medium">{message}</p>
+            </div>
+          )}
           
           <div className="flex items-center justify-center gap-2 text-slate-500">
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
